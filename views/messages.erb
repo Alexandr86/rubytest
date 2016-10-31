@@ -1,0 +1,38 @@
+<h1>Messages</h1>
+
+<table class="table table-striped">
+<% if @messages.any?  %>
+<% @messages.each_with_index do |item, index| %>
+    <tr>
+      <td><%= index+1 %></td>
+      <% if item.deleted_at  %>
+          <td>The "<%= item.title %>" will be deleted at: <strong> <%= item.deleted_at %> </strong></td>
+      <% else %>
+          <td><a data-message-id="<%= item.uuid %>" href="/messages" class="message">Link to message: <%= item.text %></a></td>
+          <% end %>
+    </tr>
+  <% end %>
+      <% else %>
+      <div class="alert alert-warning">
+        No messages have been created yet!
+      </div>
+<% end %>
+</table>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.message').on('click', function () {
+      delete_message($(this).data('message-id'));
+    });
+    function delete_message(message_id) {
+      $.ajax({
+        url: '/message/delete',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: message_id,
+        accepts: "application/json",
+        type: 'DELETE'
+      }).done()
+      return false;
+    }
+  });
+</script>

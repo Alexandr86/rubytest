@@ -1,0 +1,39 @@
+<% title="Ruby test task" %>
+<!doctype html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
+  <!--<script src="/static/messages.js" ></script>-->
+</head>
+<body>
+<div class="container">
+  <br><br>
+  <div class="row">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" >
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="/" title="Home">Home</a></li>
+          <li><a href="/messages" title="messages">Messages</a></li>
+          <li><a href="/messages/new" title="messages">Create message</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login" title="logout">Login</a></li>
+        <li><a href="/logout" title="logout">Logout</a></li>
+          </ul>
+
+      </div>
+    </nav>
+    <br><br><br>
+
+
+
+    <%= yield %>
+
+</div>
+</div>
+</body>
+</html>
+
