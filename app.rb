@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 # app.rb
 require 'sinatra'
 require 'rubygems'
@@ -15,8 +14,6 @@ require './controllers/controllers.rb'
 
 
 configure do
-  set :root, File.dirname(__FILE__)
-  set :environment, :production
   set :port, 8080
   set :username, 'admin'
   set :password, 'sinatra'
